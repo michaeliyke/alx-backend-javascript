@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* Disable the said eslint rule for the entire file [or block of code] */
 
 export default class HolbertonClass {
   constructor(size, location) {
