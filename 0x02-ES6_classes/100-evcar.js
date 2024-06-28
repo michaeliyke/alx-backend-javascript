@@ -10,6 +10,12 @@ export default class EVCar extends Car {
   }
 
   cloneCar() {
-    return new EVCar(this._brand, this._motor, this._color, this._range);
+    // User the super class instead to construct the new object
+    const Species = super.constructor[Symbol.species];
+    return new Species(this.brand, this.motor, this.color);
+  }
+
+  static get [Symbol.species]() {
+    return Car;
   }
 }
