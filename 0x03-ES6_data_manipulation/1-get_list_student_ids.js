@@ -1,3 +1,8 @@
 export default function getListStudentIds(objects) {
-  return Array.isArray(objects) ? objects.map((object) => object.id) : [];
+  if (Array.isArray(objects)) {
+    const test = objects.every((obj) => obj && typeof obj.id === "number");
+    if (!test) return [];
+    return objects.map((object) => object.id);
+  }
+  return [];
 }
