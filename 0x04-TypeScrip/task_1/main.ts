@@ -1,3 +1,4 @@
+// The student interface
 interface Student {
 	firstName: string;
 	lastName: string;
@@ -5,6 +6,7 @@ interface Student {
 	location: string;
 }
 
+// The teacher interface
 interface Teacher {
 	readonly firstName: string;
 	readonly lastName: string;
@@ -12,6 +14,11 @@ interface Teacher {
 	yearsOfExperience?: number; // Optional property can be present or not
 	location: string;
 	[propName: string]: any; // Index signature for additional properties
+}
+
+// The directors interface
+interface Directors extends Teacher {
+	numberOfReports: number;
 }
 
 
