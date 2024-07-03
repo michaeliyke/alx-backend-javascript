@@ -66,4 +66,14 @@ function executeWork(employee: Director | Teacher) {
 	}
 }
 
+// A named type allowing a variable to have only the values "Math" or "History"
+type Subjects = 'Math' | 'History';
 
+// Function teachClass
+function teachClass(todayClass: Subjects) {
+	if (todayClass === 'Math') {
+		return 'Teaching Math';
+	} else {
+		return 'Teaching History';
+	}
+}
