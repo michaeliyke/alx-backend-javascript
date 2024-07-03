@@ -31,6 +31,37 @@ function printTeacher(firstName: string, lastName: string): string {
 	return `${firstName[0]}. ${lastName}`;
 }
 
+// The StudentClass interface
+interface IStudentClass {
+	firstName: string;
+	lastName: string;
+	workOnHomework(): string;
+	displayName(): string;
+}
+
+// The constructor signature of IStudent
+interface IStudentConstructor {
+	new(firstName: string, lastName: string): IStudentClass;
+}
+
+// The Student Class
+class StudentClass implements IStudentClass {
+	firstName: string;
+	lastName: string;
+	constructor(firstName: string, lastName: string) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	workOnHomework() {
+		return "Currently working";
+	}
+
+	displayName() {
+		return this.firstName;
+	}
+}
+
 
 const studentA: Student = {
 	firstName: "Michael",
