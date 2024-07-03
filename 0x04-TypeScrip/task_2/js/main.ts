@@ -50,3 +50,20 @@ function createEmployee(salary: number | string): Director | Teacher{
 		return new Director();
 	}
 }
+
+
+// Function isDirector
+function isDirector(employee: Director | Teacher): employee is Director {
+	return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// Function executeWork
+function executeWork(employee: Director | Teacher) {
+	if (isDirector(employee)) {
+		console.log(employee.workDirectorTasks());
+	} else {
+		console.log(employee.workTeacherTasks());
+	}
+}
+
+
