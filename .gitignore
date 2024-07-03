@@ -29,3 +29,6 @@ main.js
 __pycache__
 main.py
 test.py
+
+package-lock.json
+
