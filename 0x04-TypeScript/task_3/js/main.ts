@@ -1,11 +1,11 @@
 /// <reference path="crud.d.ts" />
-import {RowElement, RowID} from './interface';
 import * as CRUD from './crud';
-import { insertRow } from './crud';
+import {RowElement, RowID} from './interface';
 
 const row: RowElement = {
 	firstName: 'Guillaume',
 	lastName: 'Salva',
 };
 
-const newRowID: RowID = insertRow(row);
+const newRowID: RowID = CRUD.insertRow(row);
+
