@@ -2,7 +2,6 @@
 const http = require('http');
 const fs = require('fs');
 
-
 function countStudents(path) {
   let txt = '';
   return new Promise((resolve, reject) => {
@@ -12,7 +11,7 @@ function countStudents(path) {
       } else {
         const lines = data.trim().split('\n');
         if (lines.length === 0) {
-          resolve("Number of students: 0");
+          resolve('Number of students: 0');
         }
         const students = lines.filter((line) => line.trim() !== '');
         const numberOfStudents = students.length - 1;
@@ -29,7 +28,7 @@ function countStudents(path) {
         });
 
         Object.entries(fields).forEach(([field, names]) => {
-          ttx += `Number of students in ${field}: ${names.length}. `
+          txt += `Number of students in ${field}: ${names.length}. `
             + `List: ${names.join(', ')}\n`;
         });
 
