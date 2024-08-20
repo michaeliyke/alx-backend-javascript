@@ -54,7 +54,6 @@ app.get('/students', (req, res) => {
     });
 });
 
-
 app.listen(1245, () => {
   console.log('Server is listening on port 1245');
 });
