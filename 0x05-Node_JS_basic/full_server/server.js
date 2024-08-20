@@ -1,7 +1,6 @@
 #!/usr/bin/node
 const express = require('express');
-const routes = require('./routes/index.js');
-
+const routes = require('./routes/index');
 
 const app = express();
 const port = 1245;

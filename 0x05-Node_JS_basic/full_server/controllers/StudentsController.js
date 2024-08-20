@@ -1,4 +1,4 @@
-const readDatabase = require('../utils.js');
+const readDatabase = require('../utils');
 
 class StudentsController {
   static getAllStudents(req, res) {
@@ -9,20 +9,19 @@ class StudentsController {
           students.push(student);
         });
       });
-      res.status(200).send('This is the list of our students\n'
-        + students.join(', '));
+      res.status(200).send(`This is the list of our students\n${students.join(', ')}`);
     }).catch((error) => res.status(500).send(error));
   }
 
   static getAllStudentsByMajor(req, res) {
     const { major } = req.params;
     if (!['CS', 'SWE'].includes(major)) {
-      return res.status(500).send('Major parameter must be CS or SWE');
+      res.status(500).send('Major parameter must be CS or SWE');
+      return;
     }
     readDatabase().then((fields) => {
       if (fields[major]) {
-        res.status(200).send('This is the list of our students\n'
-          + fields[major].join(', '));
+        res.status(200).send(`This is the list of our students\n${fields[major].join(', ')}`);
       } else {
         res.status(500).send('Cannot load the database');
       }
