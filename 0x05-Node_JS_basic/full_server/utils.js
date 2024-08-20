@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function readDatabase(filePath) {
+function readDatabase(filePath = 'database.csv') {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, { encoding: 'utf8' }, (err, data) => {
       if (err) {
