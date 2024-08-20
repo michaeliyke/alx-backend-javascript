@@ -9,5 +9,5 @@ process.stdin.on('readable', function () {
   if (!(process.stdin.isTTY)) {  // It is not a terminal
     console.log('This important software is now closing\n');
   }
-  process.exit();
+  process.exit(0);
 });
