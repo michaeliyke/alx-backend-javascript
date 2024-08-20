@@ -7,7 +7,7 @@ process.stdin.on('readable', () => {
   process.stdout.write(`Your name is: ${name}`);
 
   if (!(process.stdin.isTTY)) {  // It is not a terminal
-    console.log('This important software is now closing\n');
+    console.log('This important software is now closing');
   }
   process.exit(0);
 });
