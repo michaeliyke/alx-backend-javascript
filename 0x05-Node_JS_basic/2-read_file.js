@@ -22,7 +22,7 @@ module.exports = function countStudents(path) {
     });
 
     Object.entries(fields).forEach(([field, names]) => {
-      console.log(`Number of students in ${field}: ${names.length}.`
+      console.log(`Number of students in ${field}: ${names.length}. `
         + `List: ${names.join(', ')}`);
     });
   } catch (error) {
