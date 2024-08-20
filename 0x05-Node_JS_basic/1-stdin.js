@@ -8,11 +8,7 @@ process.stdin.on('readable', function () {
   }
 
   if (!(process.stdin.isTTY)) {  // It is not a terminal
-    process.stdin.end();
+    process.stdout.write('This important software is now closing\n');
   }
+  process.exit();
 });
-
-process.stdin.on('end', function () {
-  process.stdout.write('This important software is now closing\n');
-});
-
