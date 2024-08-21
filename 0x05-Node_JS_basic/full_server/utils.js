@@ -2,7 +2,8 @@ const fs = require('fs');
 
 function readDatabase() {
   return new Promise((resolve, reject) => {
-    const filePath = process.argv[2] || 'database.csv';
+    const filePath = 'sdatabase.csv';
+    // const filePath = process.argv[2] || 'database.csv';
     fs.readFile(filePath, { encoding: 'utf8' }, (err, data) => {
       if (err) {
         reject(Error('Cannot load the database'));

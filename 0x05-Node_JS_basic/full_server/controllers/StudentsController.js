@@ -11,7 +11,7 @@ class StudentsController {
           + `List: ${fields[field].join(', ')}\n`;
       }
       res.status(200).send(txt.slice(0, -1)); // remove last newline character
-    }).catch((error) => res.status(500).send(error));
+    }).catch(() => res.status(500).send('Cannot load the database'));
   }
 
   static getAllStudentsByMajor(req, res) {
@@ -26,7 +26,9 @@ class StudentsController {
       } else {
         res.status(500).send('Cannot load the database');
       }
-    }).catch((error) => res.status(500).send(error));
+    }).catch(() => {
+      res.status(500).send('Cannot load the database');
+    });
   }
 }
 
