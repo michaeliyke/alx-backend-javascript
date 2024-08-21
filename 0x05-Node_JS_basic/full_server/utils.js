@@ -1,7 +1,8 @@
 const fs = require('fs');
 
-function readDatabase(filePath = 'database.csv') {
+function readDatabase() {
   return new Promise((resolve, reject) => {
+    const filePath = process.argv[2] || 'database.csv';
     fs.readFile(filePath, { encoding: 'utf8' }, (err, data) => {
       if (err) {
         reject(Error('Cannot load the database'));
@@ -12,9 +13,9 @@ function readDatabase(filePath = 'database.csv') {
         }
         const fields = {};
         lines.slice(1).forEach((line) => {
-          const [student, , , field] = line.split(',');
+          const [studentFirstName, , , field] = line.split(',');
           if (!fields[field]) fields[field] = [];
-          fields[field].push(student);
+          fields[field].push(studentFirstName);
         });
         resolve(fields);
       }
