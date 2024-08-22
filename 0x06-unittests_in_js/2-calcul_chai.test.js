@@ -36,6 +36,6 @@ describe('calculateNumber', () => {
 
   // Edge case for invalid operation type
   it('should throw an error for an invalid operation type', () => {
-    expect(() => calculateNumber('MULTIPLY', 2, 3)).to.throw(/Invalid operation type/);
+    expect(() => calculateNumber('MULTIPLY', 2, 3)).to.throw('Invalid operation type');
   });
 });
