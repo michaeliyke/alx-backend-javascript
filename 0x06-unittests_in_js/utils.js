@@ -18,7 +18,7 @@ const Utils = {
         return a - b;
       case 'DIVIDE':
         if (b === 0) return 'Error';
-        return round(a / b);
+        return a / b;
       default:
         throw new Error(
           'Invalid operation type: Type must be SUM, SUBTRACT, or DIVIDE');
