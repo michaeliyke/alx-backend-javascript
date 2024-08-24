@@ -20,7 +20,7 @@ const Utils = {
         if (b === 0) return 'Error';
         return a / b;
       default:
-        return 'Error';
+        return NaN;
     }
   }
 
