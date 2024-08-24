@@ -20,8 +20,7 @@ const Utils = {
         if (b === 0) return 'Error';
         return a / b;
       default:
-        throw new Error(
-          'Invalid operation type: Type must be SUM, SUBTRACT, or DIVIDE');
+        return 'Error';
     }
   }
 

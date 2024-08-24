@@ -22,27 +22,35 @@ describe('sendPaymentRequestToApi', () => {
     let consoleSpy, calculateNumberStub;
 
     beforeEach(function () {
-      // Stub the Utils.calculateNumber to always return 10
       calculateNumberStub = sinon.stub(Utils, 'calculateNumber').returns(10);
-      // Spy on console.log to verify it logs the correct message
       consoleSpy = sinon.spy(console, 'log');
     });
 
     afterEach(function () {
-      // Restore the original functionality
       calculateNumberStub.restore();
       consoleSpy.restore();
     });
 
     it('should call calculateNumber with SUM, 100, and 20', function () {
-      sendPaymentRequestToApi(100, 20);
-      // Verify stub was called with correct arguments
+      sendPaymentRequestToApi(100, 20); // 10 cos we stubbed it earlier
       expect(calculateNumberStub.calledWith('SUM', 100, 20)).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
     });
 
-    it('calculateNumber should log "The total is: 10"', function () {
+    it('logs to the console the right messages', () => {
       sendPaymentRequestToApi(100, 20);
-      // Verify console.log was called with the correct message
+      sendPaymentRequestToApi(100, 131)
+      sendPaymentRequestToApi(100.3, 131.3)
+      sendPaymentRequestToApi(100.6, 131.3)
+      sendPaymentRequestToApi(100.3, 131.6)
+      sendPaymentRequestToApi(100.6, 131.6)
+
+      // 'The total is: 10' should be logged 6 times
+      expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
+      expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
       expect(consoleSpy.calledWith('The total is: 10')).to.be.true;
     });
   });
