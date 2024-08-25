@@ -35,7 +35,7 @@ describe('Index Page', () => {
     });
 
     it('should return correct status code when :id is NOT a number', (done) => {
-      const id = 'abc';
+      const id = '123abc';
       request.get(`${baseURL}/cart/${id}`, (error, response) => {
         expect(response.statusCode).to.equal(404);
         done();
